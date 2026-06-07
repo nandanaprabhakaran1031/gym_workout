@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Workout Plans</title>
+</head>
+<body>
+
+<h1>Workout Plans</h1>
+
+{% for workout in workouts %}
+    <h2>{{ workout.title }}</h2>
+    <p>{{ workout.description }}</p>
+    <p>Difficulty: {{ workout.difficulty }}</p>
+    <hr>
+{% endfor %}
+
+</body>
+</html>

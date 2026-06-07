@@ -1,0 +1,70 @@
+{% extends 'gymapp/base.html' %}
+
+{% block content %}
+
+<h1>Transform Your Body</h1>
+
+<p>
+    Achieve your fitness goals with professional trainers.
+</p>
+
+<a href="/register/">Join Now</a>
+<br><br>
+
+<a href="/workouts/">Workout Plans</a>
+<br><br>
+
+<a href="/contact/">Contact Us</a>
+<br><br>
+
+<a href="/bmi/">BMI Calculator</a>
+<br><br>
+
+<a href="/progress/">Progress Tracker</a>
+
+<hr>
+
+<h2>Gym Statistics</h2>
+
+<p>500+ Members</p>
+<p>20+ Trainers</p>
+<p>50+ Programs</p>
+<p>10+ Years Experience</p>
+
+<hr>
+
+<h2>Featured Workouts</h2>
+
+<ul>
+    <li>Chest Workout</li>
+    <li>Back Workout</li>
+    <li>Leg Workout</li>
+    <li>Shoulder Workout</li>
+</ul>
+
+<hr>
+
+<h2>Our Trainers</h2>
+
+{% for trainer in trainers %}
+    <h3>{{ trainer.name }}</h3>
+    <p>{{ trainer.specialization }}</p>
+    <hr>
+{% empty %}
+    <p>No trainers added yet.</p>
+{% endfor %}
+
+<hr>
+
+<h2>Membership Plans</h2>
+
+{% for plan in memberships %}
+    <h3>{{ plan.plan_name }}</h3>
+    <p>Price: ₹{{ plan.price }}</p>
+    <p>Duration: {{ plan.duration }}</p>
+    <hr>
+{% empty %}
+    <p>No membership plans added yet.</p>
+{% endfor %}
+
+{% endblock %}

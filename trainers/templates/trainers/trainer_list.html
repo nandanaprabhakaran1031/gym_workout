@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Our Trainers</title>
+</head>
+<body>
+
+<h1>Our Trainers</h1>
+
+{% for trainer in trainers %}
+    <h2>{{ trainer.name }}</h2>
+    <p>{{ trainer.specialization }}</p>
+    <hr>
+{% endfor %}
+
+</body>
+</html>

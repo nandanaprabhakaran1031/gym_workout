@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Membership Plans</title>
+</head>
+<body>
+
+<h1>Gym Membership Plans</h1>
+
+{% for membership in memberships %}
+    <h2>{{ membership.plan_name }}</h2>
+    <p>Price: ₹{{ membership.price }}</p>
+    <p>Duration: {{ membership.duration }} days</p>
+    <hr>
+{% endfor %}
+
+</body>
+</html>
