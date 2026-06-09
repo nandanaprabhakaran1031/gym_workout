@@ -1,29 +1,41 @@
-```html
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Register</title>
-</head>
-<body>
+{% extends 'gymapp/base.html' %}
 
-<h2>Register</h2>
+{% block content %}
 
-{% if error %}
-<p style="color:red;">{{ error }}</p>
-{% endif %}
+<div class="row justify-content-center">
+
+<div class="col-md-6">
+
+<div class="card p-4">
+
+<h2 class="text-center mb-4">
+Create Account
+</h2>
 
 <form method="POST">
     {% csrf_token %}
 
-    <input type="text" name="username" placeholder="Username"><br><br>
+    <input type="text" name="username"
+           class="form-control mb-3"
+           placeholder="Username">
 
-    <input type="email" name="email" placeholder="Email"><br><br>
+    <input type="email" name="email"
+           class="form-control mb-3"
+           placeholder="Email">
 
-    <input type="password" name="password" placeholder="Password"><br><br>
+    <input type="password" name="password"
+           class="form-control mb-3"
+           placeholder="Password">
 
-    <button type="submit">Register</button>
+    <button class="btn btn-success w-100">
+        Register
+    </button>
 </form>
 
-</body>
-</html>
-```
+</div>
+
+</div>
+
+</div>
+
+{% endblock %}

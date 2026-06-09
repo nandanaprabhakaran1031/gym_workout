@@ -3,6 +3,9 @@ from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 
+from trainers.models import Trainer
+from memberships.models import Membership
+
 
 def register(request):
     if request.method == 'POST':
@@ -56,5 +59,16 @@ def user_logout(request):
 def profile(request):
     return render(request, 'accounts/profile.html')
 
+
 def home(request):
-    return render(request, 'accounts/home.html')
+    trainers = Trainer.objects.all()
+    memberships = Membership.objects.all()
+
+    return render(
+        request,
+        'accounts/home.html',
+        {
+            'trainers': trainers,
+            'memberships': memberships,
+        }
+    )

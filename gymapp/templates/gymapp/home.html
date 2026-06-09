@@ -4,6 +4,9 @@
 
 <h1>Transform Your Body</h1>
 
+<h3>Trainer Count: {{ trainers.count }}</h3>
+<h3>Membership Count: {{ memeberships.count }}</h3>
+
 <p>
     Achieve your fitness goals with professional trainers.
 </p>
@@ -27,7 +30,6 @@
 <h2>Gym Statistics</h2>
 
 <p>500+ Members</p>
-<p>20+ Trainers</p>
 <p>50+ Programs</p>
 <p>10+ Years Experience</p>
 
@@ -51,20 +53,35 @@
     <p>{{ trainer.specialization }}</p>
     <hr>
 {% empty %}
-    <p>No trainers added yet.</p>
+
 {% endfor %}
 
 <hr>
 
-<h2>Membership Plans</h2>
+<h2 class="text-center my-5">
+    Membership Plans
+</h2>
+
+<div class="row">
 
 {% for plan in memberships %}
-    <h3>{{ plan.plan_name }}</h3>
-    <p>Price: ₹{{ plan.price }}</p>
-    <p>Duration: {{ plan.duration }}</p>
-    <hr>
-{% empty %}
-    <p>No membership plans added yet.</p>
+
+<div class="col-md-4 mb-4">
+
+    <div class="card p-4 text-center">
+
+        <h3>{{ plan.plan_name }}</h3>
+
+        <h2 class="text-success">
+            ₹{{ plan.price }}
+        </h2>
+
+        <p>{{ plan.duration }}</p>
+
+    </div>
+
+</div>
+
 {% endfor %}
 
-{% endblock %}
+</div>

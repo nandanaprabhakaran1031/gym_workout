@@ -1,27 +1,82 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>BMI Calculator</title>
-</head>
-<body>
+{% extends 'gymapp/base.html' %}
 
-<h1>BMI Calculator</h1>
+{% block content %}
 
-<form method="POST">
-    {% csrf_token %}
+<div class="container mt-5">
 
-    <input type="number" step="0.1" name="weight" placeholder="Weight (kg)" required>
-    <br><br>
+    <div class="card shadow-lg p-5">
 
-    <input type="number" step="0.01" name="height" placeholder="Height (m)" required>
-    <br><br>
+        <h2 class="text-center mb-4">
+            BMI Calculator
+        </h2>
 
-    <button type="submit">Calculate BMI</button>
-</form>
+        <form method="POST">
 
-{% if bmi %}
-    <h2>Your BMI: {{ bmi|floatformat:2 }}</h2>
-{% endif %}
+            {% csrf_token %}
 
-</body>
-</html>
+            <div class="mb-3">
+                <label class="form-label">
+                    Weight (kg)
+                </label>
+
+                <input
+                    type="number"
+                    step="0.1"
+                    name="weight"
+                    class="form-control"
+                    required>
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">
+                    Height (cm)
+                </label>
+
+                <input
+                    type="number"
+                    step="0.1"
+                    name="height"
+                    class="form-control"
+                    required>
+            </div>
+
+            <button class="btn btn-primary w-100">
+                Calculate BMI
+            </button>
+
+        </form>
+
+        {% if bmi %}
+
+        <div class="text-center mt-4">
+
+            <h3>
+                Your BMI: {{ bmi }}
+            </h3>
+
+            {% if status == "Underweight" %}
+                <span class="badge bg-warning fs-5">
+                    Underweight
+                </span>
+
+            {% elif status == "Normal" %}
+                <span class="badge bg-success fs-5">
+                    Normal
+                </span>
+
+            {% elif status == "Overweight" %}
+                <span class="badge bg-danger fs-5">
+                    Overweight
+                </span>
+
+            {% endif %}
+
+        </div>
+
+        {% endif %}
+
+    </div>
+
+</div>
+
+{% endblock %}

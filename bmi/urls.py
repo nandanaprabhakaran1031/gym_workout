@@ -1,6 +1,6 @@
-from django.urls import path 
-from . import views 
+from django.urls import path
+from .views import bmi_calculator
 
 urlpatterns = [
-    path('', views.bmi_calculator, name='bmi'),
+    path('', bmi_calculator, name='bmi'),
 ]

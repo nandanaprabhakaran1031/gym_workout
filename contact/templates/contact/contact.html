@@ -1,28 +1,41 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Contact Us</title>
-</head>
-<body>
+{% extends 'gymapp/base.html' %}
 
-    <h1>Contact Us</h1>
+{% block content %}
 
-    <form>
-        <label>Name:</label><br>
-        <input type="text"><br><br>
+<div class="row justify-content-center">
 
-        <label>Email:</label><br>
-        <input type="email"><br><br>
+    <div class="col-md-8">
 
-        <label>Message:</label><br>
-        <textarea rows="5" cols="30"></textarea><br><br>
+        <div class="card p-5">
 
-        <button type="submit">Send</button>
-    </form>
+            <h2 class="text-center mb-4">
+                📞 Contact Us
+            </h2>
 
-    <br>
+            <form>
 
-    <a href="/">Back to Home</a>
+                <input type="text"
+                       class="form-control mb-3"
+                       placeholder="Your Name">
 
-</body>
-</html>
+                <input type="email"
+                       class="form-control mb-3"
+                       placeholder="Your Email">
+
+                <textarea class="form-control mb-3"
+                          rows="5"
+                          placeholder="Your Message"></textarea>
+
+                <button class="btn btn-primary w-100">
+                    Send Message
+                </button>
+
+            </form>
+
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock %}

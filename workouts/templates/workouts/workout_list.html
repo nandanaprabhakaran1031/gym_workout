@@ -1,18 +1,44 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Workout Plans</title>
-</head>
-<body>
+{% extends 'gymapp/base.html' %}
 
-<h1>Workout Plans</h1>
+{% block content %}
 
-{% for workout in workouts %}
-    <h2>{{ workout.title }}</h2>
-    <p>{{ workout.description }}</p>
-    <p>Difficulty: {{ workout.difficulty }}</p>
-    <hr>
-{% endfor %}
+<div class="text-center mb-5">
+    <h1 class="fw-bold">🏋️ Workout Plans</h1>
+    <p class="text-muted">
+        Choose the perfect workout plan for your fitness goals
+    </p>
+</div>
 
-</body>
-</html>
+<div class="row">
+
+    {% for workout in workouts %}
+
+    <div class="col-lg-4 col-mb-6 mb-4">
+
+        <div class="card h-100">
+
+            <div class="card-body">
+
+                <h3 class="card-title">
+                    {{ workout.title }}
+                </h3>
+
+                <p class="card-text">
+                    {{ workout.description }}
+                </p>
+
+                <span class="badge bg-primary">
+                    {{ workout.difficulty }}
+                </span>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    {% endfor %}
+
+</div>
+
+{% endblock %}
